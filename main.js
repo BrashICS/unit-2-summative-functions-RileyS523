@@ -40,3 +40,16 @@ function vertex() {
 
 }
 
+function delta(a, b) {
+    return (a - b)
+}
+
+function slope(x1, y1, x2, y2){
+    let d1=delta(y2,y1)
+    let d2=delta(x2,x1)
+    return (d1/d2)
+}
+
+function average(n1,n2){
+    
+}

@@ -5,6 +5,7 @@
 
 /* Using font-size: larger to make things pop. Feel free to change. */
 body {
+    font-family:'Atkinson Hyperlegible';
     background-color:lightcyan;
     margin: 20px;
     font-size: larger;
