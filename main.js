@@ -11,6 +11,18 @@
 /*** Event Listeners ***/
 document.getElementById("zeros").addEventListener("click", zeros);
 document.getElementById("vertex").addEventListener("click", vertex);
+document.getElementById("rect_prism_volume_id").addEventListener("click", rect_prism_volume);
+document.getElementById("rect_prism_sa_id").addEventListener("click", rect_prism_area);
+document.getElementById("zeros").addEventListener("click", zeros);
+document.getElementById("vertex").addEventListener("click", vertex);
+document.getElementById("zeros").addEventListener("click", zeros);
+document.getElementById("vertex").addEventListener("click", vertex);
+document.getElementById("zeros").addEventListener("click", zeros);
+document.getElementById("vertex").addEventListener("click", vertex);
+document.getElementById("zeros").addEventListener("click", zeros);
+document.getElementById("vertex").addEventListener("click", vertex);
+document.getElementById("zeros").addEventListener("click", zeros);
+document.getElementById("vertex").addEventListener("click", vertex);
 
 /*** Functions ***/
 
@@ -23,7 +35,10 @@ function round(value, decimals) {
 function round_user(value) {
     // Get the number of decimals from the "rounding" box
     let d = Number(document.getElementById("rounding").value)
-
+    let first=value * (10 ** d)
+    let second = Math.round(first)
+    let answer = second / 10 ** d
+    return(answer)
 }
 
 // Calculate the y-value of a parabola from standand form
@@ -51,5 +66,29 @@ function slope(x1, y1, x2, y2){
 }
 
 function average(n1,n2){
-    
+    return((n1+n2)/2)
+}
+
+function length(x1,y1,x2,y2){
+    let answer = Math.sqrt((delta(x1,x2)**2)+(delta(y1,y2)**2))
+    return(answer)
+}
+
+function rect_prism_volume(){
+    let l= Number(document.getElementById("length").value)
+    let w= Number(document.getElementById("width").value)
+    let h= Number(document.getElementById("height").value)
+    //bf for before, tho I would like a boyfriend//
+    let bf = l*w*h
+    let af=round_user(bf)
+    document.getElementById("change").textContent = (`The volume of the Prism is ${af}`)
+}
+function rect_prism_area(){
+    //2(wl+hl+hw)//
+    let l= Number(document.getElementById("length").value)
+    let w= Number(document.getElementById("width").value)
+    let h= Number(document.getElementById("height").value)
+    let bf = 2*((w*l)+(l*h)+(w*h))
+    let af = round_user(bf)
+    document.getElementById("change").textContent = (`The Surface area of the Prism is ${af}`)
 }
