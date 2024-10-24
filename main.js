@@ -20,9 +20,6 @@ document.getElementById("length_id").addEventListener("click", length_of_line_se
 document.getElementById("slope_id").addEventListener("click", slope_of_line_seg);
 document.getElementById("vertex").addEventListener("click", vertex);
 document.getElementById("zeros").addEventListener("click", zeros);
-document.getElementById("vertex").addEventListener("click", vertex);
-document.getElementById("zeros").addEventListener("click", zeros);
-document.getElementById("vertex").addEventListener("click", vertex);
 
 /*** Functions ***/
 
@@ -43,18 +40,37 @@ function round_user(value) {
 
 // Calculate the y-value of a parabola from standand form
 function y_quad(a, b, c, x) {
-
+    a = Number(document.getElementById("a").value)
+    b = Number(document.getElementById("b").value)
+    c = Number(document.getElementById("c").value)
+    x = -b / (2*a)
+    let y = a*(x**2)+b*x+c
+    return (y)
 }
 
 // Determine the zeros of a quadratic using user-inputs for a, b, and c
 function zeros() {
+    let a = Number(document.getElementById("a").value)
+    let b = Number(document.getElementById("b").value)
+    let c = Number(document.getElementById("c").value)
+    let bf= (-b + Math.sqrt((b**2)-4*a*c))/(2*a)
+    let bf2=(-b - Math.sqrt((b**2)-4*a*c))/(2*a)
+    let af= round_user(bf)
+    let af2 = round_user(bf2)
+    document.getElementById("quadratic_output").textContent = (`The Zero's of the quadratic are ${af} and ${af2}`)
 }
 
 // Determine the vertex of a quadratic using user-inputs for a, b, and c
 function vertex() {
-
+    let a = Number(document.getElementById("a").value)
+    let b = Number(document.getElementById("b").value)
+    let c = Number(document.getElementById("c").value)
+    let x = -b / (2*a)
+    let bf = y_quad(a,b,c,x)
+    let af = round_user(bf)
+    document.getElementById("quadratic_output").textContent = (`The Vertex of the quadratic is ${x},${af}`)
 }
-
+// Geometry
 function delta(a, b) {
     return (a - b)
 }
