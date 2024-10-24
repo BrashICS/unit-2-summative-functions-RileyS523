@@ -12,10 +12,13 @@ body {
 }
 
 /* Make the font a bit bigger on buttons and input boxes */
-button, input {
-    font-size: large;
+button {
+    font-size: medium;
+    background-color: #D3D3D3;
 }
-
+input{
+    font-size: medium;
+}
 /* Align the geometry shapes with the title a little better */
 .heading_img {
     vertical-align: auto;
@@ -25,3 +28,4 @@ button, input {
 .short_number {
     width: 50px;
 }
+
