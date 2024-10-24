@@ -15,9 +15,9 @@ document.getElementById("rect_prism_volume_id").addEventListener("click", rect_p
 document.getElementById("rect_prism_sa_id").addEventListener("click", rect_prism_area);
 document.getElementById("sphere_volume_id").addEventListener("click", sphere_volume);
 document.getElementById("sphere_sa_id").addEventListener("click", sphere_area);
-document.getElementById("zeros").addEventListener("click", zeros);
-document.getElementById("vertex").addEventListener("click", vertex);
-document.getElementById("zeros").addEventListener("click", zeros);
+document.getElementById("midpoint_id").addEventListener("click", midpoint);
+document.getElementById("length_id").addEventListener("click", length_of_line_seg);
+document.getElementById("slope_id").addEventListener("click", slope_of_line_seg);
 document.getElementById("vertex").addEventListener("click", vertex);
 document.getElementById("zeros").addEventListener("click", zeros);
 document.getElementById("vertex").addEventListener("click", vertex);
@@ -110,6 +110,7 @@ function length_of_line_seg(){
     let x2= Number(document.getElementById("x2").value)
     let y2= Number(document.getElementById("y2").value)
     let answer = Math.sqrt((delta(x1,x2)**2)+(delta(y1,y2)**2))
+    answer = round_user(answer)
     document.getElementById("change").textContent = (`The Length of the line segment is ${answer}`)
 }
 function slope_of_line_seg(){
@@ -118,6 +119,17 @@ function slope_of_line_seg(){
     let x2= Number(document.getElementById("x2").value)
     let y2= Number(document.getElementById("y2").value)
     let bf = diff(y2,y1)/diff(x2,x1)
-    let m = round_user(m)
+    let m = round_user(bf)
     document.getElementById("change").textContent = (`The Slope of the line is ${m}`)
+}
+function midpoint(){
+    let x1= Number(document.getElementById("x1").value)
+    let y1= Number(document.getElementById("y1").value)
+    let x2= Number(document.getElementById("x2").value)
+    let y2= Number(document.getElementById("y2").value)
+    let bf = average(x1,x2)
+    let bf2 = average(y1,y2)
+    let af = round_user(bf)
+    let af2= round_user(bf2)
+    document.getElementById("change").textContent = (`The midpoint of the line is ${af},${af2}`)
 }
